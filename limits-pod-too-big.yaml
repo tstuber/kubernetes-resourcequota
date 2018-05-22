@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: too-big
+spec:
+  containers:
+    - image: busybox
+      args: ["sleep", "9999999"]
+      name: name
+      resources:
+        requests:
+          cpu: 150m
+          memory: 250Mi
+        limits:
+          cpu: 500m
+          memory: 400Mi
